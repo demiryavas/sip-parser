@@ -355,7 +355,7 @@ int main(int argc, char* argv[])
   nparsed = sip_parser_execute(&test_parser, &settings, data, msg_length);
   if (((long)nparsed != msg_length) || (test_parser.sip_errno != SPE_OK))
   {
-    fprintf(stderr, "MessageReceived: Someting wrong with parsing, received msg-length=%lu while %lu of them is parsed! Error-No:%d-%s-%s\n",
+    fprintf(stderr, "MessageReceived: Something wrong with parsing, received msg-length=%lu while %lu of them is parsed! Error-No:%d-%s-%s\n",
             msg_length, nparsed, test_parser.sip_errno,
             sip_errno_name((enum sip_errno)test_parser.sip_errno),
             sip_errno_description((enum sip_errno)test_parser.sip_errno));

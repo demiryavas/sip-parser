@@ -209,7 +209,7 @@ enum flags
   , F_SKIPBODY                    = 1 << 1 /* Not sure be needed for SIP */
   };
 
-/* TODO: Athough almost all error messages are applicable for SIP
+/* TODO: Although almost all error messages are applicable for SIP
  * there may be a need to remove some and add some new ones
  */
 /* Map for errno-related constants
@@ -296,6 +296,7 @@ struct sip_parser {
   unsigned int method : 8;       /* requests only */
   unsigned int sip_errno : 7;
 
+  /* TODO: Upgrade is not applicable for SIP. It is to be removed after boundary check of this struct */
   /* 1 = Upgrade header was present and the parser has exited because of that.
    * 0 = No upgrade header present.
    * Should be checked when sip_parser_execute() returns in addition to
@@ -303,12 +304,6 @@ struct sip_parser {
    */
   unsigned int upgrade : 1;
 
-  /** PUBLIC **/
-//  void *currmsg;  /* (ADDITION) Current message */
-//  /*void *currmsg_x; */ /* (ADDITION) Current message */
-//  const char* parsing_data; /* (ADDITION) current received bystes that used in parsing process */
-//  size_t parsing_len; /* (ADDITION) current length of data that used in parsing process */
-//  const char** position;
   void *data; /* A pointer to get hook to the "connection" or "socket" object */
 };
 
@@ -322,6 +317,9 @@ struct sip_parser_settings {
   sip_cb      on_headers_complete;
   sip_data_cb on_body;
   sip_cb      on_message_complete;
+  /* TODO: Chunk is not applicable for SIP. To be removed after deciding the design strategy
+   * for multipart body support
+   */
   /* When on_chunk_header is called, the current chunk length is stored
    * in parser->content_length.
    */
@@ -329,7 +327,7 @@ struct sip_parser_settings {
   sip_cb      on_chunk_complete;
 };
 
-/* NOTE: We support SIP URI parsing separately. */
+/* TODO: We are planning to support SIP URI parsing separately. */
 #if 0
 enum http_parser_url_fields
   { UF_SCHEMA           = 0

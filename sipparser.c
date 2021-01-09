@@ -70,7 +70,7 @@ do {                                                                 \
     UPDATE_STATE(parser->state);                                     \
                                                                      \
     /* We either errored above or got paused; get out */             \
-    if (UNLIKELY(SIP_PARSER_ERRNO(parser) != SPE_OK)) {             \
+    if (UNLIKELY(SIP_PARSER_ERRNO(parser) != SPE_OK)) {              \
       return (ER);                                                   \
     }                                                                \
   }                                                                  \
@@ -85,7 +85,7 @@ do {                                                                 \
 /* Run data callback FOR with LEN bytes, returning ER if it fails */
 #define CALLBACK_DATA_(FOR, LEN, ER)                                 \
 do {                                                                 \
-  assert(SIP_PARSER_ERRNO(parser) == SPE_OK);                       \
+  assert(SIP_PARSER_ERRNO(parser) == SPE_OK);                        \
                                                                      \
   if (FOR##_mark) {                                                  \
     if (LIKELY(settings->on_##FOR)) {                                \
@@ -97,7 +97,7 @@ do {                                                                 \
       UPDATE_STATE(parser->state);                                   \
                                                                      \
       /* We either errored above or got paused; get out */           \
-      if (UNLIKELY(SIP_PARSER_ERRNO(parser) != SPE_OK)) {           \
+      if (UNLIKELY(SIP_PARSER_ERRNO(parser) != SPE_OK)) {            \
         return (ER);                                                 \
       }                                                              \
     }                                                                \
@@ -264,11 +264,6 @@ enum state
   , s_start_req_or_res
   , s_res_or_resp_S
   , s_start_res
-/*  , s_res_H
-  , s_res_HT
-  , s_res_HTT
-  , s_res_HTTP
-*/
   , s_res_S
   , s_res_SI
   , s_res_SIP
@@ -288,6 +283,7 @@ enum state
   , s_req_spaces_before_url
   /* newly added */
   , s_req_url
+  /* TODO: Could be used for URL parsing */
 /*
   , s_req_schema
   , s_req_schema_slash
@@ -304,9 +300,6 @@ enum state
   , s_req_sip_S
   , s_req_sip_SI
   , s_req_sip_SIP
-/*  , s_req_http_HTTP
-  , s_req_http_I
-  , s_req_http_IC */
   , s_req_sip_major
   , s_req_sip_dot
   , s_req_sip_minor
@@ -357,39 +350,14 @@ enum header_states
   , h_C
   , h_CO
   , h_CON
-/*
-  , h_matching_connection
-  , h_matching_proxy_connection
-*/
   , h_matching_content_length
-/*
-  , h_matching_transfer_encoding
-  , h_matching_upgrade
-
-  , h_connection */
   , h_content_length
   , h_content_length_num
   , h_content_length_ws
-/*  , h_transfer_encoding
-  , h_upgrade
-
-  , h_matching_transfer_encoding_token_start
-  , h_matching_transfer_encoding_chunked
-  , h_matching_transfer_encoding_token
-
-  , h_matching_connection_token_start
-  , h_matching_connection_keep_alive
-  , h_matching_connection_close
-  , h_matching_connection_upgrade
-  , h_matching_connection_token
-
-  , h_transfer_encoding_chunked
-  , h_connection_keep_alive
-  , h_connection_close
-  , h_connection_upgrade
-*/
   };
 
+/* TODO: To be used or removed after URL parsing support */
+#if 0
 enum http_host_state
   {
     s_http_host_dead = 1
@@ -405,6 +373,7 @@ enum http_host_state
   , s_http_host_port_start
   , s_http_host_port
 };
+#endif
 
 /* Macros for character classes; depends on strict-mode  */
 #define CR                  '\r'
@@ -793,12 +762,7 @@ reexecute:
         STRICT_CHECK(ch != 'P');
         UPDATE_STATE(s_res_SIP);
         break;
-#if 0
-      case s_res_HTT:
-        STRICT_CHECK(ch != 'P');
-        UPDATE_STATE(s_res_HTTP);
-        break;
-#endif
+
       case s_res_SIP:
         STRICT_CHECK(ch != '/');
         UPDATE_STATE(s_res_sip_major);
@@ -1114,22 +1078,7 @@ reexecute:
         STRICT_CHECK(ch != 'P');
         UPDATE_STATE(s_req_sip_SIP);
         break;
-#if 0
-      case s_req_http_HTT:
-        STRICT_CHECK(ch != 'P');
-        UPDATE_STATE(s_req_http_HTTP);
-        break;
 
-      case s_req_http_I:
-        STRICT_CHECK(ch != 'C');
-        UPDATE_STATE(s_req_http_IC);
-        break;
-
-      case s_req_http_IC:
-        STRICT_CHECK(ch != 'E');
-        UPDATE_STATE(s_req_http_HTTP);  /* Treat "ICE" as "HTTP". */
-        break;
-#endif
       case s_req_sip_SIP:
         STRICT_CHECK(ch != '/');
         UPDATE_STATE(s_req_sip_major);
@@ -1225,19 +1174,7 @@ reexecute:
           case 'c':
             parser->header_state = h_C;
             break;
-/*
-          case 'p':
-            parser->header_state = h_matching_proxy_connection;
-            break;
 
-          case 't':
-            parser->header_state = h_matching_transfer_encoding;
-            break;
-
-          case 'u':
-            parser->header_state = h_matching_upgrade;
-            break;
-*/
           default:
             parser->header_state = h_general;
             break;
@@ -1278,11 +1215,6 @@ reexecute:
             case h_CON:
               parser->index++;
               switch (c) {
-/*
-                case 'n':
-                  parser->header_state = h_matching_connection;
-                  break;
-*/
                 case 't':
                   parser->header_state = h_matching_content_length;
                   break;
@@ -1292,30 +1224,6 @@ reexecute:
               }
               break;
 
-            /* connection */
-/*
-            case h_matching_connection:
-              parser->index++;
-              if (parser->index > sizeof(CONNECTION)-1
-                  || c != CONNECTION[parser->index]) {
-                parser->header_state = h_general;
-              } else if (parser->index == sizeof(CONNECTION)-2) {
-                parser->header_state = h_connection;
-              }
-              break;
-*/
-            /* proxy-connection */
-/*
-            case h_matching_proxy_connection:
-              parser->index++;
-              if (parser->index > sizeof(PROXY_CONNECTION)-1
-                  || c != PROXY_CONNECTION[parser->index]) {
-                parser->header_state = h_general;
-              } else if (parser->index == sizeof(PROXY_CONNECTION)-2) {
-                parser->header_state = h_connection;
-              }
-              break;
-*/
             /* content-length */
 
             case h_matching_content_length:
@@ -1328,35 +1236,7 @@ reexecute:
               }
               break;
 
-            /* transfer-encoding */
-/*
-            case h_matching_transfer_encoding:
-              parser->index++;
-              if (parser->index > sizeof(TRANSFER_ENCODING)-1
-                  || c != TRANSFER_ENCODING[parser->index]) {
-                parser->header_state = h_general;
-              } else if (parser->index == sizeof(TRANSFER_ENCODING)-2) {
-                parser->header_state = h_transfer_encoding;
-                parser->extra_flags |= F_TRANSFER_ENCODING >> 8;
-              }
-              break;
-*/
-            /* upgrade */
-/*
-            case h_matching_upgrade:
-              parser->index++;
-              if (parser->index > sizeof(UPGRADE)-1
-                  || c != UPGRADE[parser->index]) {
-                parser->header_state = h_general;
-              } else if (parser->index == sizeof(UPGRADE)-2) {
-                parser->header_state = h_upgrade;
-              }
-              break;
-*/
-            /*case h_connection:*/
             case h_content_length:
-            /*case h_transfer_encoding:
-            case h_upgrade:*/
               if (ch != ' ') parser->header_state = h_general;
               break;
 
@@ -1409,25 +1289,6 @@ reexecute:
         c = LOWER(ch);
 
         switch (parser->header_state) {
-/*
-          case h_upgrade:
-            parser->flags |= F_UPGRADE;
-            parser->header_state = h_general;
-            break;
-*/
-          /*case h_transfer_encoding:*/
-            /* looking for 'Transfer-Encoding: chunked' */
-/*            if ('c' == c) {
-              parser->header_state = h_matching_transfer_encoding_chunked;
-            } else {
-              parser->header_state = h_matching_transfer_encoding_token;
-            }
-            break;
-*/
-          /* Multi-value `Transfer-Encoding` header */
-/*          case h_matching_transfer_encoding_token_start:
-            break;
-*/
           case h_content_length:
             if (UNLIKELY(!IS_DIGIT(ch))) {
               SET_ERRNO(SPE_INVALID_CONTENT_LENGTH);
@@ -1448,25 +1309,7 @@ reexecute:
            * continue to the s_header_value state */
           case h_content_length_ws:
             break;
-#if 0
-          case h_connection:
-            /* looking for 'Connection: keep-alive' */
-            if (c == 'k') {
-              parser->header_state = h_matching_connection_keep_alive;
-            /* looking for 'Connection: close' */
-            } else if (c == 'c') {
-              parser->header_state = h_matching_connection_close;
-            } else if (c == 'u') {
-              parser->header_state = h_matching_connection_upgrade;
-            } else {
-              parser->header_state = h_matching_connection_token;
-            }
-            break;
 
-          /* Multi-value `Connection` header */
-          case h_matching_connection_token_start:
-            break;
-#endif
           default:
             parser->header_state = h_general;
             break;
@@ -1523,12 +1366,6 @@ reexecute:
                   --p;
                 break;
               }
-/*
-            case h_connection:
-            case h_transfer_encoding:
-              assert(0 && "Shouldn't get here.");
-              break;
-*/
             case h_content_length:
               if (ch == ' ') break;
               h_state = h_content_length_num;
@@ -1569,122 +1406,7 @@ reexecute:
               SET_ERRNO(SPE_INVALID_CONTENT_LENGTH);
               parser->header_state = h_state;
               goto error;
-#if 0
-            /* Transfer-Encoding: chunked */
-            case h_matching_transfer_encoding_token_start:
-              /* looking for 'Transfer-Encoding: chunked' */
-              if ('c' == c) {
-                h_state = h_matching_transfer_encoding_chunked;
-              } else if (STRICT_TOKEN(c)) {
-                /* TODO(indutny): similar code below does this, but why?
-                 * At the very least it seems to be inconsistent given that
-                 * h_matching_transfer_encoding_token does not check for
-                 * `STRICT_TOKEN`
-                 */
-                h_state = h_matching_transfer_encoding_token;
-              } else if (c == ' ' || c == '\t') {
-                /* Skip lws */
-              } else {
-                h_state = h_general;
-              }
-              break;
 
-            case h_matching_transfer_encoding_chunked:
-              parser->index++;
-              if (parser->index > sizeof(CHUNKED)-1
-                  || c != CHUNKED[parser->index]) {
-                h_state = h_matching_transfer_encoding_token;
-              } else if (parser->index == sizeof(CHUNKED)-2) {
-                h_state = h_transfer_encoding_chunked;
-              }
-              break;
-
-            case h_matching_transfer_encoding_token:
-              if (ch == ',') {
-                h_state = h_matching_transfer_encoding_token_start;
-                parser->index = 0;
-              }
-              break;
-
-            case h_matching_connection_token_start:
-              /* looking for 'Connection: keep-alive' */
-              if (c == 'k') {
-                h_state = h_matching_connection_keep_alive;
-              /* looking for 'Connection: close' */
-              } else if (c == 'c') {
-                h_state = h_matching_connection_close;
-              } else if (c == 'u') {
-                h_state = h_matching_connection_upgrade;
-              } else if (STRICT_TOKEN(c)) {
-                h_state = h_matching_connection_token;
-              } else if (c == ' ' || c == '\t') {
-                /* Skip lws */
-              } else {
-                h_state = h_general;
-              }
-              break;
-
-            /* looking for 'Connection: keep-alive' */
-            case h_matching_connection_keep_alive:
-              parser->index++;
-              if (parser->index > sizeof(KEEP_ALIVE)-1
-                  || c != KEEP_ALIVE[parser->index]) {
-                h_state = h_matching_connection_token;
-              } else if (parser->index == sizeof(KEEP_ALIVE)-2) {
-                h_state = h_connection_keep_alive;
-              }
-              break;
-
-            /* looking for 'Connection: close' */
-            case h_matching_connection_close:
-              parser->index++;
-              if (parser->index > sizeof(CLOSE)-1 || c != CLOSE[parser->index]) {
-                h_state = h_matching_connection_token;
-              } else if (parser->index == sizeof(CLOSE)-2) {
-                h_state = h_connection_close;
-              }
-              break;
-
-            /* looking for 'Connection: upgrade' */
-            case h_matching_connection_upgrade:
-              parser->index++;
-              if (parser->index > sizeof(UPGRADE) - 1 ||
-                  c != UPGRADE[parser->index]) {
-                h_state = h_matching_connection_token;
-              } else if (parser->index == sizeof(UPGRADE)-2) {
-                h_state = h_connection_upgrade;
-              }
-              break;
-
-            case h_matching_connection_token:
-              if (ch == ',') {
-                h_state = h_matching_connection_token_start;
-                parser->index = 0;
-              }
-              break;
-
-            case h_transfer_encoding_chunked:
-              if (ch != ' ') h_state = h_matching_transfer_encoding_token;
-              break;
-
-            case h_connection_keep_alive:
-            case h_connection_close:
-            case h_connection_upgrade:
-              if (ch == ',') {
-                if (h_state == h_connection_keep_alive) {
-                  parser->flags |= F_CONNECTION_KEEP_ALIVE;
-                } else if (h_state == h_connection_close) {
-                  parser->flags |= F_CONNECTION_CLOSE;
-                } else if (h_state == h_connection_upgrade) {
-                  parser->flags |= F_CONNECTION_UPGRADE;
-                }
-                h_state = h_matching_connection_token_start;
-                parser->index = 0;
-              } else if (ch != ' ') {
-                h_state = h_matching_connection_token;
-              }
-              break;
-#endif
             default:
               UPDATE_STATE(s_header_value);
               h_state = h_general;
@@ -2152,10 +1874,9 @@ error:
   RETURN(p - data);
 }
 
-
+/* TODO: Check for necessity of this function */
 /* Does the parser need to see an EOF to find the end of the message? */
-int
-sip_message_needs_eof (const sip_parser *parser)
+int sip_message_needs_eof (const sip_parser *parser)
 {
   /* TODO: Code is here if no Content-Length included in the message.
            Although Content-Length is mandatory we try to handle this
@@ -2165,22 +1886,6 @@ sip_message_needs_eof (const sip_parser *parser)
   if (parser->type == SIP_REQUEST) {
     return 0;
   }
-#if 0
-  /* See RFC 2616 section 4.4 */
-  if (parser->status_code / 100 == 1 || /* 1xx e.g. Continue */
-      parser->status_code == 204 ||     /* No Content */
-      parser->status_code == 304 ||     /* Not Modified */
-      parser->flags & F_SKIPBODY) {     /* response to a HEAD request */
-    return 0;
-  }
-#endif
-#if 0
-  /* RFC 7230 3.3.3, see `s_headers_almost_done` */
-  if ((parser->extra_flags & (F_TRANSFER_ENCODING >> 8)) &&
-      (parser->flags & F_CHUNKED) == 0) {
-    return 1;
-  }
-#endif
   if (/*(parser->flags & F_CHUNKED) ||*/ parser->content_length != ULLONG_MAX) {
     return 0;
   }
@@ -2188,35 +1893,19 @@ sip_message_needs_eof (const sip_parser *parser)
   return 1;
 }
 
-
-int
-sip_should_keep_alive (const sip_parser *parser)
+/*  TODO: Check for necessity of this function */
+int sip_should_keep_alive (const sip_parser *parser)
 {
-#if 0
-  if (parser->sip_major > 0 && parser->sip_minor > 0) {
-    /* HTTP/1.1 */
-    if (parser->flags & F_CONNECTION_CLOSE) {
-      return 0;
-    }
-  } else {
-    /* HTTP/1.0 or earlier */
-    if (!(parser->flags & F_CONNECTION_KEEP_ALIVE)) {
-      return 0;
-    }
-  }
-#endif
   return !sip_message_needs_eof(parser);
 }
 
 
-const char *
-sip_method_str (enum sip_method m)
+const char * sip_method_str (enum sip_method m)
 {
   return ELEM_AT(method_strings, m, "<unknown>");
 }
 
-const char *
-sip_status_str (enum sip_status s)
+const char * sip_status_str (enum sip_status s)
 {
   switch (s) {
 #define XX(num, name, string) case SIP_STATUS_##name: return #string;
@@ -2226,33 +1915,29 @@ sip_status_str (enum sip_status s)
   }
 }
 
-void
-sip_parser_init (sip_parser *parser, enum sip_parser_type t)
+void sip_parser_init (sip_parser *parser, enum sip_parser_type t)
 {
   void *data = parser->data; /* preserve application data */
-  //void* currmsg = parser->currmsg; /* (DY) */
   memset(parser, 0, sizeof(*parser));
   parser->data = data; 
-  //parser->currmsg = currmsg; /* (DY) */
   parser->type = t;
   parser->state = (t == SIP_REQUEST ? s_start_req : (t == SIP_RESPONSE ? s_start_res : s_start_req_or_res));
   parser->sip_errno = SPE_OK;
 }
 
-void
-sip_parser_settings_init(sip_parser_settings *settings)
+void sip_parser_settings_init(sip_parser_settings *settings)
 {
   memset(settings, 0, sizeof(*settings));
 }
 
-const char *
-sip_errno_name(enum sip_errno err) {
+const char* sip_errno_name(enum sip_errno err)
+{
   assert(((size_t) err) < ARRAY_SIZE(sip_strerror_tab));
   return sip_strerror_tab[err].name;
 }
 
-const char *
-sip_errno_description(enum sip_errno err) {
+const char* sip_errno_description(enum sip_errno err)
+{
   assert(((size_t) err) < ARRAY_SIZE(sip_strerror_tab));
   return sip_strerror_tab[err].description;
 }
@@ -2555,8 +2240,8 @@ http_parser_parse_url(const char *buf, size_t buflen, int is_connect,
 }
 #endif
 
-void
-sip_parser_pause(sip_parser *parser, int paused) {
+void sip_parser_pause(sip_parser *parser, int paused)
+{
   /* Users should only be pausing/unpausing a parser that is not in an error
    * state. In non-debug builds, there's not much that we can do about this
    * other than ignore it.
@@ -2570,20 +2255,20 @@ sip_parser_pause(sip_parser *parser, int paused) {
   }
 }
 
-int
-sip_body_is_final(const struct sip_parser *parser) {
-    return parser->state == s_message_done;
+int sip_body_is_final(const struct sip_parser *parser)
+{
+  return parser->state == s_message_done;
 }
 
-unsigned long
-sip_parser_version(void) {
+unsigned long sip_parser_version(void)
+{
   return SIP_PARSER_VERSION_MAJOR * 0x10000 |
          SIP_PARSER_VERSION_MINOR * 0x00100 |
          SIP_PARSER_VERSION_PATCH * 0x00001;
 }
 
-void
-sip_parser_set_max_header_size(uint32_t size) {
+void sip_parser_set_max_header_size(uint32_t size)
+{
   max_header_size = size;
 }
 
