@@ -1,0 +1,191 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sip_parser_test", "sip_parser_test\sip_parser_test.vcxproj", "{E3BA0594-BE7B-484B-9D81-4ECA01852453}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36} = {AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sipparser", "sipparser\sipparser.vcxproj", "{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "api", "api", "{5BD38BDC-30EF-428B-A332-A58E570F6803}"
+	ProjectSection(SolutionItems) = preProject
+		..\include\osip-config.h = ..\include\osip-config.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "osip2", "osip2", "{B806BBA1-0A12-4060-881B-2C173AF631CA}"
+	ProjectSection(SolutionItems) = preProject
+		..\include\osip2\internal.h = ..\include\osip2\internal.h
+		..\include\osip2\osip.h = ..\include\osip2\osip.h
+		..\include\osip2\osip_condv.h = ..\include\osip2\osip_condv.h
+		..\include\osip2\osip_dialog.h = ..\include\osip2\osip_dialog.h
+		..\include\osip2\osip_fifo.h = ..\include\osip2\osip_fifo.h
+		..\include\osip2\osip_mt.h = ..\include\osip2\osip_mt.h
+		..\include\osip2\osip_time.h = ..\include\osip2\osip_time.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "osipparser2", "osipparser2", "{3AC4A53C-F683-4D67-9D2F-4A87A43E8EA2}"
+	ProjectSection(SolutionItems) = preProject
+		..\include\osipparser2\internal.h = ..\include\osipparser2\internal.h
+		..\include\osipparser2\osip_body.h = ..\include\osipparser2\osip_body.h
+		..\include\osipparser2\osip_const.h = ..\include\osipparser2\osip_const.h
+		..\include\osipparser2\osip_headers.h = ..\include\osipparser2\osip_headers.h
+		..\include\osipparser2\osip_list.h = ..\include\osipparser2\osip_list.h
+		..\include\osipparser2\osip_md5.h = ..\include\osipparser2\osip_md5.h
+		..\include\osipparser2\osip_message.h = ..\include\osipparser2\osip_message.h
+		..\include\osipparser2\osip_parser.h = ..\include\osipparser2\osip_parser.h
+		..\include\osipparser2\osip_port.h = ..\include\osipparser2\osip_port.h
+		..\include\osipparser2\osip_uri.h = ..\include\osipparser2\osip_uri.h
+		..\include\osipparser2\sdp_message.h = ..\include\osipparser2\sdp_message.h
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "headers", "headers", "{A0A342C4-B287-4CB5-AB58-21386D449830}"
+	ProjectSection(SolutionItems) = preProject
+		..\include\osipparser2\headers\osip_accept.h = ..\include\osipparser2\headers\osip_accept.h
+		..\include\osipparser2\headers\osip_accept_encoding.h = ..\include\osipparser2\headers\osip_accept_encoding.h
+		..\include\osipparser2\headers\osip_accept_language.h = ..\include\osipparser2\headers\osip_accept_language.h
+		..\include\osipparser2\headers\osip_alert_info.h = ..\include\osipparser2\headers\osip_alert_info.h
+		..\include\osipparser2\headers\osip_allow.h = ..\include\osipparser2\headers\osip_allow.h
+		..\include\osipparser2\headers\osip_authentication_info.h = ..\include\osipparser2\headers\osip_authentication_info.h
+		..\include\osipparser2\headers\osip_authorization.h = ..\include\osipparser2\headers\osip_authorization.h
+		..\include\osipparser2\headers\osip_call_id.h = ..\include\osipparser2\headers\osip_call_id.h
+		..\include\osipparser2\headers\osip_call_info.h = ..\include\osipparser2\headers\osip_call_info.h
+		..\include\osipparser2\headers\osip_contact.h = ..\include\osipparser2\headers\osip_contact.h
+		..\include\osipparser2\headers\osip_content_disposition.h = ..\include\osipparser2\headers\osip_content_disposition.h
+		..\include\osipparser2\headers\osip_content_encoding.h = ..\include\osipparser2\headers\osip_content_encoding.h
+		..\include\osipparser2\headers\osip_content_length.h = ..\include\osipparser2\headers\osip_content_length.h
+		..\include\osipparser2\headers\osip_content_type.h = ..\include\osipparser2\headers\osip_content_type.h
+		..\include\osipparser2\headers\osip_cseq.h = ..\include\osipparser2\headers\osip_cseq.h
+		..\include\osipparser2\headers\osip_error_info.h = ..\include\osipparser2\headers\osip_error_info.h
+		..\include\osipparser2\headers\osip_from.h = ..\include\osipparser2\headers\osip_from.h
+		..\include\osipparser2\headers\osip_header.h = ..\include\osipparser2\headers\osip_header.h
+		..\include\osipparser2\headers\osip_mime_version.h = ..\include\osipparser2\headers\osip_mime_version.h
+		..\include\osipparser2\headers\osip_proxy_authenticate.h = ..\include\osipparser2\headers\osip_proxy_authenticate.h
+		..\include\osipparser2\headers\osip_proxy_authentication_info.h = ..\include\osipparser2\headers\osip_proxy_authentication_info.h
+		..\include\osipparser2\headers\osip_proxy_authorization.h = ..\include\osipparser2\headers\osip_proxy_authorization.h
+		..\include\osipparser2\headers\osip_record_route.h = ..\include\osipparser2\headers\osip_record_route.h
+		..\include\osipparser2\headers\osip_route.h = ..\include\osipparser2\headers\osip_route.h
+		..\include\osipparser2\headers\osip_to.h = ..\include\osipparser2\headers\osip_to.h
+		..\include\osipparser2\headers\osip_via.h = ..\include\osipparser2\headers\osip_via.h
+		..\include\osipparser2\headers\osip_www_authenticate.h = ..\include\osipparser2\headers\osip_www_authenticate.h
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "osip2", "osip2\osip2.vcxproj", "{E68607A7-F6D7-4756-AF48-588F7EF696BA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "osipparser2", "osipparser2\osipparser2.vcxproj", "{24BE23B0-3097-417E-8108-8ACAD38E4055}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "osiptest", "osiptest\osiptest.vcxproj", "{A9834811-0F2D-4F2B-A55F-05B557A32427}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "osipuritest", "osipuritest\osipuritest.vcxproj", "{EA17EB9B-3F9F-43B5-AF1A-049327284D79}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sipmsg", "sipmsg\sipmsg.vcxproj", "{89018CD1-D528-4397-AD5D-84B3F21F8618}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "benchmark", "benchmark\benchmark.vcxproj", "{6FE61239-59D6-4FB5-8F6A-710748F1AF49}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36} = {AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA} = {E68607A7-F6D7-4756-AF48-588F7EF696BA}
+		{24BE23B0-3097-417E-8108-8ACAD38E4055} = {24BE23B0-3097-417E-8108-8ACAD38E4055}
+		{89018CD1-D528-4397-AD5D-84B3F21F8618} = {89018CD1-D528-4397-AD5D-84B3F21F8618}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "siptest", "siptest\siptest.vcxproj", "{D7E1A184-6FC7-4503-85F9-642F031BACD3}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36} = {AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}
+		{89018CD1-D528-4397-AD5D-84B3F21F8618} = {89018CD1-D528-4397-AD5D-84B3F21F8618}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Debug|x64.ActiveCfg = Debug|x64
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Debug|x64.Build.0 = Debug|x64
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Debug|x86.ActiveCfg = Debug|Win32
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Debug|x86.Build.0 = Debug|Win32
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Release|x64.ActiveCfg = Release|x64
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Release|x64.Build.0 = Release|x64
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Release|x86.ActiveCfg = Release|Win32
+		{E3BA0594-BE7B-484B-9D81-4ECA01852453}.Release|x86.Build.0 = Release|Win32
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Debug|x64.ActiveCfg = Debug|x64
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Debug|x64.Build.0 = Debug|x64
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Debug|x86.ActiveCfg = Debug|Win32
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Debug|x86.Build.0 = Debug|Win32
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Release|x64.ActiveCfg = Release|x64
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Release|x64.Build.0 = Release|x64
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Release|x86.ActiveCfg = Release|Win32
+		{AECEF81C-5F2D-4B8A-A9E4-10C82D963D36}.Release|x86.Build.0 = Release|Win32
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Debug|x64.ActiveCfg = Debug|x64
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Debug|x64.Build.0 = Debug|x64
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Debug|x86.ActiveCfg = Debug|Win32
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Debug|x86.Build.0 = Debug|Win32
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Release|x64.ActiveCfg = Release|x64
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Release|x64.Build.0 = Release|x64
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Release|x86.ActiveCfg = Release|Win32
+		{E68607A7-F6D7-4756-AF48-588F7EF696BA}.Release|x86.Build.0 = Release|Win32
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Debug|x64.ActiveCfg = Debug|x64
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Debug|x64.Build.0 = Debug|x64
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Debug|x86.ActiveCfg = Debug|Win32
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Debug|x86.Build.0 = Debug|Win32
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Release|x64.ActiveCfg = Release|x64
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Release|x64.Build.0 = Release|x64
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Release|x86.ActiveCfg = Release|Win32
+		{24BE23B0-3097-417E-8108-8ACAD38E4055}.Release|x86.Build.0 = Release|Win32
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Debug|x64.ActiveCfg = Debug|x64
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Debug|x64.Build.0 = Debug|x64
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Debug|x86.ActiveCfg = Debug|Win32
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Debug|x86.Build.0 = Debug|Win32
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Release|x64.ActiveCfg = Release|x64
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Release|x64.Build.0 = Release|x64
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Release|x86.ActiveCfg = Release|Win32
+		{A9834811-0F2D-4F2B-A55F-05B557A32427}.Release|x86.Build.0 = Release|Win32
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Debug|x64.ActiveCfg = Debug|x64
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Debug|x64.Build.0 = Debug|x64
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Debug|x86.ActiveCfg = Debug|Win32
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Debug|x86.Build.0 = Debug|Win32
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Release|x64.ActiveCfg = Release|x64
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Release|x64.Build.0 = Release|x64
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Release|x86.ActiveCfg = Release|Win32
+		{EA17EB9B-3F9F-43B5-AF1A-049327284D79}.Release|x86.Build.0 = Release|Win32
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Debug|x64.ActiveCfg = Debug|x64
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Debug|x64.Build.0 = Debug|x64
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Debug|x86.ActiveCfg = Debug|Win32
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Debug|x86.Build.0 = Debug|Win32
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Release|x64.ActiveCfg = Release|x64
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Release|x64.Build.0 = Release|x64
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Release|x86.ActiveCfg = Release|Win32
+		{89018CD1-D528-4397-AD5D-84B3F21F8618}.Release|x86.Build.0 = Release|Win32
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Debug|x64.ActiveCfg = Debug|x64
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Debug|x64.Build.0 = Debug|x64
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Debug|x86.ActiveCfg = Debug|Win32
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Debug|x86.Build.0 = Debug|Win32
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Release|x64.ActiveCfg = Release|x64
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Release|x64.Build.0 = Release|x64
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Release|x86.ActiveCfg = Release|Win32
+		{6FE61239-59D6-4FB5-8F6A-710748F1AF49}.Release|x86.Build.0 = Release|Win32
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Debug|x64.ActiveCfg = Debug|x64
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Debug|x64.Build.0 = Debug|x64
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Debug|x86.ActiveCfg = Debug|Win32
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Debug|x86.Build.0 = Debug|Win32
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Release|x64.ActiveCfg = Release|x64
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Release|x64.Build.0 = Release|x64
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Release|x86.ActiveCfg = Release|Win32
+		{D7E1A184-6FC7-4503-85F9-642F031BACD3}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B806BBA1-0A12-4060-881B-2C173AF631CA} = {5BD38BDC-30EF-428B-A332-A58E570F6803}
+		{3AC4A53C-F683-4D67-9D2F-4A87A43E8EA2} = {5BD38BDC-30EF-428B-A332-A58E570F6803}
+		{A0A342C4-B287-4CB5-AB58-21386D449830} = {3AC4A53C-F683-4D67-9D2F-4A87A43E8EA2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1D2DE604-990F-44B1-B63A-73C0573D8CF7}
+	EndGlobalSection
+EndGlobal

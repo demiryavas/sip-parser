@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>16.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{a9834811-0f2d-4f2b-a55f-05b557a32427}</ProjectGuid>
+    <RootNamespace>osiptest</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>../../include</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>../x64/Debug</AdditionalLibraryDirectories>
+      <AdditionalDependencies>osipparser2.lib;osip2.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\osiptest\torture.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\src\osiptest\res\auths.txt" />
+    <Text Include="..\..\src\osiptest\res\callids.txt" />
+    <Text Include="..\..\src\osiptest\res\contacts.txt" />
+    <Text Include="..\..\src\osiptest\res\contenttypes.txt" />
+    <Text Include="..\..\src\osiptest\res\froms.txt" />
+    <Text Include="..\..\src\osiptest\res\recordroutes.txt" />
+    <Text Include="..\..\src\osiptest\res\routes.txt" />
+    <Text Include="..\..\src\osiptest\res\tos.txt" />
+    <Text Include="..\..\src\osiptest\res\urls.txt" />
+    <Text Include="..\..\src\osiptest\res\vias.txt" />
+    <Text Include="..\..\src\osiptest\res\wwwas.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\osiptest\res\sdp0" />
+    <None Include="..\..\src\osiptest\res\sdp1" />
+    <None Include="..\..\src\osiptest\res\sdp10" />
+    <None Include="..\..\src\osiptest\res\sdp11" />
+    <None Include="..\..\src\osiptest\res\sdp12" />
+    <None Include="..\..\src\osiptest\res\sdp13" />
+    <None Include="..\..\src\osiptest\res\sdp14" />
+    <None Include="..\..\src\osiptest\res\sdp15" />
+    <None Include="..\..\src\osiptest\res\sdp2" />
+    <None Include="..\..\src\osiptest\res\sdp3" />
+    <None Include="..\..\src\osiptest\res\sdp4" />
+    <None Include="..\..\src\osiptest\res\sdp5" />
+    <None Include="..\..\src\osiptest\res\sdp6" />
+    <None Include="..\..\src\osiptest\res\sdp7" />
+    <None Include="..\..\src\osiptest\res\sdp8" />
+    <None Include="..\..\src\osiptest\res\sdp9" />
+    <None Include="..\..\src\osiptest\res\sip-malformed0" />
+    <None Include="..\..\src\osiptest\res\sip-malformed1" />
+    <None Include="..\..\src\osiptest\res\sip-malformed10" />
+    <None Include="..\..\src\osiptest\res\sip-malformed11" />
+    <None Include="..\..\src\osiptest\res\sip-malformed12" />
+    <None Include="..\..\src\osiptest\res\sip-malformed13" />
+    <None Include="..\..\src\osiptest\res\sip-malformed14" />
+    <None Include="..\..\src\osiptest\res\sip-malformed15" />
+    <None Include="..\..\src\osiptest\res\sip-malformed16" />
+    <None Include="..\..\src\osiptest\res\sip-malformed17" />
+    <None Include="..\..\src\osiptest\res\sip-malformed18" />
+    <None Include="..\..\src\osiptest\res\sip-malformed19" />
+    <None Include="..\..\src\osiptest\res\sip-malformed2" />
+    <None Include="..\..\src\osiptest\res\sip-malformed3" />
+    <None Include="..\..\src\osiptest\res\sip-malformed4" />
+    <None Include="..\..\src\osiptest\res\sip-malformed5" />
+    <None Include="..\..\src\osiptest\res\sip-malformed6" />
+    <None Include="..\..\src\osiptest\res\sip-malformed7" />
+    <None Include="..\..\src\osiptest\res\sip-malformed8" />
+    <None Include="..\..\src\osiptest\res\sip-malformed9" />
+    <None Include="..\..\src\osiptest\res\sip0" />
+    <None Include="..\..\src\osiptest\res\sip1" />
+    <None Include="..\..\src\osiptest\res\sip10" />
+    <None Include="..\..\src\osiptest\res\sip11" />
+    <None Include="..\..\src\osiptest\res\sip12" />
+    <None Include="..\..\src\osiptest\res\sip12x" />
+    <None Include="..\..\src\osiptest\res\sip12x2" />
+    <None Include="..\..\src\osiptest\res\sip12x3" />
+    <None Include="..\..\src\osiptest\res\sip12x4" />
+    <None Include="..\..\src\osiptest\res\sip12x4 - Copy" />
+    <None Include="..\..\src\osiptest\res\sip13" />
+    <None Include="..\..\src\osiptest\res\sip14" />
+    <None Include="..\..\src\osiptest\res\sip15" />
+    <None Include="..\..\src\osiptest\res\sip16" />
+    <None Include="..\..\src\osiptest\res\sip17" />
+    <None Include="..\..\src\osiptest\res\sip18" />
+    <None Include="..\..\src\osiptest\res\sip19" />
+    <None Include="..\..\src\osiptest\res\sip2" />
+    <None Include="..\..\src\osiptest\res\sip20" />
+    <None Include="..\..\src\osiptest\res\sip21" />
+    <None Include="..\..\src\osiptest\res\sip22" />
+    <None Include="..\..\src\osiptest\res\sip23" />
+    <None Include="..\..\src\osiptest\res\sip24" />
+    <None Include="..\..\src\osiptest\res\sip25" />
+    <None Include="..\..\src\osiptest\res\sip26" />
+    <None Include="..\..\src\osiptest\res\sip27" />
+    <None Include="..\..\src\osiptest\res\sip28" />
+    <None Include="..\..\src\osiptest\res\sip29" />
+    <None Include="..\..\src\osiptest\res\sip2x" />
+    <None Include="..\..\src\osiptest\res\sip2xAC" />
+    <None Include="..\..\src\osiptest\res\sip3" />
+    <None Include="..\..\src\osiptest\res\sip30" />
+    <None Include="..\..\src\osiptest\res\sip31" />
+    <None Include="..\..\src\osiptest\res\sip32" />
+    <None Include="..\..\src\osiptest\res\sip33" />
+    <None Include="..\..\src\osiptest\res\sip34" />
+    <None Include="..\..\src\osiptest\res\sip35" />
+    <None Include="..\..\src\osiptest\res\sip36" />
+    <None Include="..\..\src\osiptest\res\sip36x" />
+    <None Include="..\..\src\osiptest\res\sip36x2" />
+    <None Include="..\..\src\osiptest\res\sip37" />
+    <None Include="..\..\src\osiptest\res\sip38" />
+    <None Include="..\..\src\osiptest\res\sip39" />
+    <None Include="..\..\src\osiptest\res\sip4" />
+    <None Include="..\..\src\osiptest\res\sip40" />
+    <None Include="..\..\src\osiptest\res\sip41" />
+    <None Include="..\..\src\osiptest\res\sip42" />
+    <None Include="..\..\src\osiptest\res\sip43" />
+    <None Include="..\..\src\osiptest\res\sip44" />
+    <None Include="..\..\src\osiptest\res\sip45" />
+    <None Include="..\..\src\osiptest\res\sip46" />
+    <None Include="..\..\src\osiptest\res\sip47" />
+    <None Include="..\..\src\osiptest\res\sip48" />
+    <None Include="..\..\src\osiptest\res\sip49" />
+    <None Include="..\..\src\osiptest\res\sip5" />
+    <None Include="..\..\src\osiptest\res\sip50" />
+    <None Include="..\..\src\osiptest\res\sip51" />
+    <None Include="..\..\src\osiptest\res\sip52" />
+    <None Include="..\..\src\osiptest\res\sip53" />
+    <None Include="..\..\src\osiptest\res\sip54" />
+    <None Include="..\..\src\osiptest\res\sip55" />
+    <None Include="..\..\src\osiptest\res\sip56" />
+    <None Include="..\..\src\osiptest\res\sip57" />
+    <None Include="..\..\src\osiptest\res\sip58" />
+    <None Include="..\..\src\osiptest\res\sip59" />
+    <None Include="..\..\src\osiptest\res\sip6" />
+    <None Include="..\..\src\osiptest\res\sip60" />
+    <None Include="..\..\src\osiptest\res\sip61" />
+    <None Include="..\..\src\osiptest\res\sip62" />
+    <None Include="..\..\src\osiptest\res\sip63" />
+    <None Include="..\..\src\osiptest\res\sip64" />
+    <None Include="..\..\src\osiptest\res\sip65" />
+    <None Include="..\..\src\osiptest\res\sip66" />
+    <None Include="..\..\src\osiptest\res\sip67" />
+    <None Include="..\..\src\osiptest\res\sip68" />
+    <None Include="..\..\src\osiptest\res\sip69" />
+    <None Include="..\..\src\osiptest\res\sip7" />
+    <None Include="..\..\src\osiptest\res\sip70" />
+    <None Include="..\..\src\osiptest\res\sip71" />
+    <None Include="..\..\src\osiptest\res\sip72" />
+    <None Include="..\..\src\osiptest\res\sip73" />
+    <None Include="..\..\src\osiptest\res\sip74" />
+    <None Include="..\..\src\osiptest\res\sip75" />
+    <None Include="..\..\src\osiptest\res\sip76" />
+    <None Include="..\..\src\osiptest\res\sip77" />
+    <None Include="..\..\src\osiptest\res\sip78" />
+    <None Include="..\..\src\osiptest\res\sip79" />
+    <None Include="..\..\src\osiptest\res\sip8" />
+    <None Include="..\..\src\osiptest\res\sip80" />
+    <None Include="..\..\src\osiptest\res\sip81" />
+    <None Include="..\..\src\osiptest\res\sip82" />
+    <None Include="..\..\src\osiptest\res\sip83" />
+    <None Include="..\..\src\osiptest\res\sip84" />
+    <None Include="..\..\src\osiptest\res\sip85" />
+    <None Include="..\..\src\osiptest\res\sip86" />
+    <None Include="..\..\src\osiptest\res\sip87" />
+    <None Include="..\..\src\osiptest\res\sip88" />
+    <None Include="..\..\src\osiptest\res\sip89" />
+    <None Include="..\..\src\osiptest\res\sip8x" />
+    <None Include="..\..\src\osiptest\res\sip8x2" />
+    <None Include="..\..\src\osiptest\res\sip9" />
+    <None Include="..\..\src\osiptest\res\sip90" />
+    <None Include="..\..\src\osiptest\res\sip91" />
+    <None Include="..\..\src\osiptest\res\sip92" />
+    <None Include="..\..\src\osiptest\res\sip93" />
+    <None Include="..\..\src\osiptest\res\sip94" />
+    <None Include="..\..\src\osiptest\res\sip95" />
+    <None Include="..\..\src\osiptest\res\sip96" />
+    <None Include="..\..\src\osiptest\res\torture_hgs" />
+    <None Include="..\..\src\osiptest\res\torture_msgs2" />
+    <None Include="..\..\src\osiptest\res\torture_sdps" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

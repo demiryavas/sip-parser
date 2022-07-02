@@ -1,0 +1,467 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\siptest\SipTestMain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\src\siptest\res\auths.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\callids.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\contacts.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\contenttypes.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\froms.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\recordroutes.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\routes.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\tos.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\urls.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\vias.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+    <Text Include="..\..\src\siptest\res\wwwas.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\siptest\res\sdp0">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp1">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp3">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp4">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp5">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp6">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp7">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp8">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp9">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp10">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp11">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp12">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp13">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp14">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sdp15">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip0">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip1">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip3">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip4">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip5">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip6">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip7">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip8">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip9">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip10">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip11">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip12">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip13">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip14">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip15">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip16">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip17">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip18">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip19">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip20">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip21">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip22">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip23">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip24">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip25">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip26">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip27">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip28">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip29">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip30">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip31">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip32">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip33">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip34">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip35">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip36">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip37">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip38">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip39">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip40">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip41">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip42">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip43">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip44">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip45">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip46">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip47">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip48">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip49">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip50">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip51">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip52">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip53">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip54">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip55">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip56">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip57">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip58">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip59">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip60">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip61">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip62">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip63">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip64">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip65">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip66">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip67">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip68">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip69">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip70">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip71">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip72">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip73">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip74">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip75">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip76">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip77">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip78">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip79">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip80">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip81">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip82">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip83">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip84">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip85">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip86">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip87">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip88">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip89">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip90">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip91">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip92">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip93">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip94">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip95">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip96">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed0">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed1">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed3">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed4">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed5">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed6">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed7">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed8">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed9">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed10">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed11">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed12">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed13">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed14">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed15">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed16">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed17">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed18">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\sip-malformed19">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\torture_hgs">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\torture_msgs2">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\src\siptest\res\torture_sdps">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+</Project>
