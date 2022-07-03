@@ -45,7 +45,6 @@ public:
   ~MessageProcessor() {}
 
   void Initialize(void);
-//  void Initialize(msgproc_cb cb);
 
   int MessageReceived(unsigned char* msg, long msgsize);
 

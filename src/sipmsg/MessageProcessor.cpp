@@ -523,13 +523,6 @@ int MessageProcessor::MessageReceived(unsigned char* msg, long msgsize)
 	}
 	/* Success path. Collect un-reported part of data message, if there are */
 	currmsg = (SipMessage*)this->parser->currmsg;
-	/*	if (!currmsg)
-		{
-			if (!sipMsgList.empty())
-			{
-				currmsg = sipMsgList.back();
-			}
-		}*/
 
 	if (currmsg)
 	{
