@@ -1225,8 +1225,10 @@ reexecute:
             }
 
             case h_L:
+              /* (DY) */
               /* We do not expect any other token char for short form of Content-Length */
-              parser->header_state = h_general;
+              //parser->header_state = h_general;
+              parser->header_state = (c == ' ' ? h_content_length : h_general);
               break;
 
             case h_C:

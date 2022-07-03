@@ -637,6 +637,10 @@ int main(int argc, char* argv[])
   char* msg = NULL;
   int msglen = 0;
 
+  if (argc >= 2) 
+  {
+    filename = argv[1];
+  }
   unsigned long h1 = nhash("Via");
   unsigned long h2 = lhash("Via:", 3);
   unsigned long h3 = mhash("via");

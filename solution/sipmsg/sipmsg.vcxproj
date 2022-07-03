@@ -151,6 +151,7 @@
     <ClInclude Include="..\..\src\sipmsg\CSeqHeader.h" />
     <ClInclude Include="..\..\src\sipmsg\FromHeader.h" />
     <ClInclude Include="..\..\src\sipmsg\MaxForwardsHeader.h" />
+    <ClInclude Include="..\..\src\sipmsg\MessageProcessor.h" />
     <ClInclude Include="..\..\src\sipmsg\RawData.h" />
     <ClInclude Include="..\..\src\sipmsg\SipHeader.h" />
     <ClInclude Include="..\..\src\sipmsg\SipMessage.h" />
@@ -171,6 +172,7 @@
     <ClCompile Include="..\..\src\sipmsg\CSeqHeader.cpp" />
     <ClCompile Include="..\..\src\sipmsg\FromHeader.cpp" />
     <ClCompile Include="..\..\src\sipmsg\MaxForwardsHeader.cpp" />
+    <ClCompile Include="..\..\src\sipmsg\MessageProcessor.cpp" />
     <ClCompile Include="..\..\src\sipmsg\SipMessage.cpp" />
     <ClCompile Include="..\..\src\sipmsg\SipUri.cpp" />
     <ClCompile Include="..\..\src\sipmsg\SubjectHeader.cpp" />
