@@ -614,19 +614,6 @@ int main(int argc, char* argv[]) {
 	/* Note that, under normal condition msgProcessor instance shall be connection-based,
 	   which could be through TCP or UDP */
 	msgProcessor = new MessageProcessor(&HandleParsedMessage);
-	//msgProcessor->Initialize();
-
-#if 0
-	memset(&settings, 0, sizeof(settings));
-	settings.on_message_begin = on_message_begin;
-	settings.on_url = on_url;
-	settings.on_status = on_response_status;
-	settings.on_header_field = on_header_field;
-	settings.on_header_value = on_header_value;
-	settings.on_headers_complete = on_headers_complete;
-	settings.on_body = on_body;
-	settings.on_message_complete = on_message_complete;
-#endif
 
 	/* TODO: parser-type should be passed as a parameter or parser should be initialized here. */
 	if (processing_type == 1)
@@ -643,9 +630,7 @@ int main(int argc, char* argv[]) {
 	if (nparsed != (size_t)file_length) {
 		fprintf(stderr,
 			"Error: %s (%s)\n",
-			//sip_errno_description(SIP_PARSER_ERRNO(&parser)),
 			sip_errno_description(SIP_PARSER_ERRNO(test_parser)),
-			//sip_errno_name(SIP_PARSER_ERRNO(&parser)));
 			sip_errno_name(SIP_PARSER_ERRNO(test_parser)));
 		//goto fail;
 		fclose(file);
@@ -661,15 +646,7 @@ int main(int argc, char* argv[]) {
 	currentmsg->PrintOut(msgbuf);
 	std::cout << msgbuf.str();
 
-	//  std::cout << "----- Header Test ------ Content-Length -------\n";
-	//  std::string hdr = currentmsg->GetHeaderValue((unsigned char*)"Content-Length");
-	//  std::cout << hdr << std::endl;
-
 	TestForContentLengthHeader(currentmsg);
-
-	//  std::cout << "----- Header Test ------ Content-Type -------\n";
-	//  currentmsg->GetHeaderValue((unsigned char*)"Content-Type", hdr);
-	//  std::cout << hdr << std::endl;
 
 	TestForContentTypeHeader(currentmsg);
 
@@ -680,32 +657,7 @@ int main(int argc, char* argv[]) {
 
 	TestForAllowHeader(currentmsg);
 
-	//  std::cout << "----- Header Test ------ Call-ID -------\n";
-	//  RawData rd;
-	//  currentmsg->GetHeaderValue((unsigned char*)"Call-ID", rd);
-	//  std::cout << std::string((char*)rd._data, rd._length) << std::endl;
-	//  std::cout << "------ After parsing ----------\n";
-	//  CallIdHeader callid;
-	//  callid.ParseHeader((const char*)rd._data, 0, rd._length);
-	//  msgbuf.clear();
-	//  msgbuf.str("");
-	//  callid.PrintOut(msgbuf);
-	//  std::cout << msgbuf.str() << std::endl;
-
 	TestForCallIDHeader(currentmsg);
-
-	//  std::cout << "----- Header Test ------ CSeq -------\n";
-	//  currentmsg->GetHeaderValue((unsigned char*)"CSeq", rd);
-	//  std::cout << std::string((char*)rd._data, rd._length) << std::endl;
-	//  std::cout << "------ After parsing ----------\n";
-	//  CSeqHeader cseq;
-	//  cseq.ParseHeader((const char*)rd._data, 0, rd._length);
-	//  msgbuf.clear();
-	//  msgbuf.str("");
-	//  cseq.PrintOut(msgbuf);
-	//  std::cout << msgbuf.str() << std::endl;
-	//  std::string cs = cseq.GetHeaderValue();
-	//  std::cout << cs << std::endl;
 
 	TestForCSeqHeader(currentmsg);
 
